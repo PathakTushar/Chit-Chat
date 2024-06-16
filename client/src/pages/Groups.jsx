@@ -23,16 +23,20 @@ const Groups = () => {
   const chatId = useSearchParams()[0].get("group");
 
   useEffect(() => {
-    setGroupName(`Group Name ${chatId}`)
-    setGroupNameUpdated(`Group Name ${chatId}`)
-
-    return () => {
-      setGroupName("")
-      setGroupNameUpdated("")
-      setIsEdit(false)
+    if (chatId) {
+      setGroupName(`Group Name ${chatId}`);
+      setGroupNameUpdated(`Group Name ${chatId}`);
+    } else {
+      setGroupName("");
+      setGroupNameUpdated("");
     }
 
-  }, [chatId])
+    return () => {
+      setGroupName("");
+      setGroupNameUpdated("");
+      setIsEdit(false);
+    }
+  }, [chatId]);
 
 
   const navigateBack = () => {
@@ -154,6 +158,7 @@ const Groups = () => {
         }}
         sm={4}
         bgcolor={"bisque"}
+        height={"100%"}
       >
         <GroupsList myGroups={sampleChats} chatId={chatId} />
       </Grid>
@@ -172,6 +177,7 @@ const Groups = () => {
         {IconBtns}
 
         {groupName && <>
+          {console.log(groupName)}
           {GroupName}
           <Typography margin={"2rem"} alignSelf={"flex-start"} variant='body1' >Members</Typography>
           <Stack
