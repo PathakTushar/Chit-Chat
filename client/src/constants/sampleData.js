@@ -119,7 +119,7 @@ export const sampleMessages = [
             {
                 public_id: "asdf",
                 url: "https://www.w3schools.com/howto/img_avatar.png",
-            }
+            },
         ],
         content: "Hi there, how are you doing!!",
         _id: "5",
@@ -135,7 +135,7 @@ export const sampleMessages = [
             {
                 public_id: "asdf",
                 url: "https://www.w3schools.com/howto/img_avatar.png",
-            }
+            },
         ],
         content: "Hi there, how are you doing!!",
         _id: "9",
@@ -145,5 +145,85 @@ export const sampleMessages = [
         },
         chat: "chatId",
         createdAt: "2024-03-12T00:00:00.000Z",
-    }
-]
+    },
+];
+
+export const dashboardData = {
+    users: [
+        {
+            name: "tushar",
+            avatar: "https://www.w3schools.com/howto/img_avatar.png",
+            _id: "1",
+            username: "tushar",
+            friends: 20,
+            groups: 5,
+        },
+        {
+            name: "ravin",
+            avatar: "https://www.w3schools.com/howto/img_avatar.png",
+            _id: "2",
+            username: "ravin",
+            friends: 20,
+            groups: 14,
+        },
+    ],
+    chats: [
+        {
+            name: "tushar",
+            avatar: ["https://www.w3schools.com/howto/img_avatar.png"],
+            _id: "1",
+            groupChat: false,
+            members: [{_id: "1", avatar: "https://www.w3schools.com/howto/img_avatar.png"}, {_id: "2", avatar: "https://www.w3schools.com/howto/img_avatar.png"},],
+            totalMembers: 2,
+            totalMessages: 20,
+            creator: {
+                name: "ravin",
+                avatar: "https://www.w3schools.com/howto/img_avatar.png",
+            },
+        },
+        {
+            name: "group2",
+            avatar: ["https://www.w3schools.com/howto/img_avatar.png"],
+            _id: "2",
+            groupChat: false,
+            members: [{_id: "1", avatar: "https://www.w3schools.com/howto/img_avatar.png"}, {_id: "2", avatar: "https://www.w3schools.com/howto/img_avatar.png"},],
+            totalMembers: 2,
+            totalMessages: 20,
+            creator: {
+                name: "tushar",
+                avatar: "https://www.w3schools.com/howto/img_avatar.png",
+            },
+        },
+    ],
+    messages: [
+        {
+            attachments: [],
+            content: "Hi there, how are you doing!!",
+            _id: "5",
+            sender: {
+                avatar: "https://www.w3schools.com/howto/img_avatar.png",
+                name: "john",
+            },
+            chat: "chatId",
+            groupChat: false,
+            createdAt: "2024-03-12T00:00:00.000Z",
+        },
+        {
+            attachments: [
+                {
+                    public_id: "asdf",
+                    url: "https://www.w3schools.com/howto/img_avatar.png",
+                },
+            ],
+            content: "Hi there, how are you doing!!",
+            _id: "9",
+            sender: {
+                avatar: "https://www.w3schools.com/howto/img_avatar.png",
+                name: "john",
+            },
+            chat: "chatId",
+            groupChat: true,
+            createdAt: "2024-03-12T00:00:00.000Z",
+        },
+    ],
+};
