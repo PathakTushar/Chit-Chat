@@ -32,4 +32,8 @@ const removeToken = (res, code, message) => {
     })
 }
 
-export {connectDB, sendToken, cookieOptions, removeToken}
+const emitEvent = (req, event, users, data) => {
+    console.log("Emitting event", event);
+}
+
+export {connectDB, sendToken, cookieOptions, removeToken, emitEvent}
