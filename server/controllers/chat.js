@@ -14,11 +14,11 @@ import { getOtherMember } from "../lib/helper.js";
 
 const newGroupChat = TryCatch(async (req, res, next) => {
     const { name, members } = req.body;
-    if (members.length < 2) {
-        return next(
-            new ErrorHandler("Group chat must have at least 3 users", 400)
-        );
-    }
+    // if (members.length < 2) {
+    //     return next(
+    //         new ErrorHandler("Group chat must have at least 3 users", 400)
+    //     );
+    // }
 
     const allMembers = [...members, req.user];
 
