@@ -6,6 +6,7 @@ import cookieParser from "cookie-parser";
 
 import UserRoute from "./routes/user.js"
 import ChatRoute from "./routes/chat.js"
+import AdminRoute from "./routes/admin.js"
 
 dotenv.config({
     path: "./.env",
@@ -13,6 +14,7 @@ dotenv.config({
 
 const mongoURI = process.env.MONGO_URI
 const port = process.env.PORT || 8000
+const adminSecretKey = process.env.ADMIN_SECRET_KEY || "mainahibataunga"
 
 connectDB(mongoURI)
 
@@ -26,9 +28,12 @@ app.get("/", (req, res) => {
 
 app.use("/user", UserRoute)
 app.use("/chat", ChatRoute)
+app.use("/admin", AdminRoute)
 
 app.use(errorMiddleware)
 
 app.listen(port, ()=>{
     console.log("server is running on port: " + port);
 })
+
+export {adminSecretKey}
