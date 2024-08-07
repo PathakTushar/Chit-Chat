@@ -7,7 +7,7 @@ import { ErrorHandler } from "../utils/utility.js";
 import { TryCatch } from "../middlewares/error.js";
 import { NEW_REQUEST, REFETCH_CHATS } from "../constants/events.js";
 
-const newUser = async (req, res) => {
+const newUser = TryCatch(async (req, res) => {
     const { name, username, password, bio } = req.body;
 
     const avatar = {
@@ -25,9 +25,9 @@ const newUser = async (req, res) => {
     sendToken(res, user, 201, "User Created Successfully");
 
     // res.status(201).json({message: "User Created Successfully"});
-};
+});
 
-const login = async (req, res, next) => {
+const login = TryCatch(async (req, res, next) => {
     const { username, password } = req.body;
 
     const user = await User.findOne({ username }).select("+password");
@@ -43,7 +43,7 @@ const login = async (req, res, next) => {
     }
 
     sendToken(res, user, 200, `Welcome Back, ${user.name}`);
-};
+});
 
 const getMyProfile = TryCatch(async (req, res) => {
     const user = await User.findById(req.user);
@@ -220,5 +220,5 @@ export {
     sendFriendRequest,
     acceptFriendRequest,
     getMyNotifications,
-    getMyFriends
+    getMyFriends,
 };
